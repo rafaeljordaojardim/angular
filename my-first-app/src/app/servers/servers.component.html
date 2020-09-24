@@ -20,4 +20,7 @@
   <P>no server was created</P>
 </ng-template> -->
 <!-- <app-server></app-server> -->
-<!-- <app-server></app-server> -->
+<!-- <app-server *ngFor="let server of servers; let i = index"></app-server> -->
+
+<p [ngClass]="{white: numberInc>=5}" [ngStyle]="{backgroundColor: getBackground() }">{{numberInc}}</p>
+<button (click)="increment()">Increment</button>

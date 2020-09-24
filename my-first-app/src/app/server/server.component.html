@@ -1,8 +1,9 @@
-<!-- <h1>Server with ID {{ serverId }} is {{getServerStatus()}}</h1>
- -->
+<p [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{online: serverStatus === 'online'}">Server with ID {{ serverId }} is {{getServerStatus()}}</p>
 
- <input type="text" [(ngModel)]="username">
+
+ <!-- <input type="text" [(ngModel)]="username">
 <br>
  {{username}}
 <br>
- <button (click)="reset()" [disabled]="!username">Reset</button>
+ <button (click)="reset()" [disabled]="!username">Reset</button> -->
