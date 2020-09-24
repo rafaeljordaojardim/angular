@@ -1,0 +1,23 @@
+<!-- 
+  string interpolation {{variable}} we can put a variable to be a string in the end
+  [disabled] property binding we will set it dinamically
+  event binding we can call methods from the server (click)="onCreateServer()"
+-->
+
+<label>Server Name</label>
+<!-- <input type="text" name="" id="" class="form-control" (input)="onUpdateServerName($event)"> -->
+
+<input type="text" name="" id="" class="form-control" [(ngModel)]="serverName">
+
+
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- {{ serverName }} -->
+<!-- <p>{{serverCreationStatus}}</p> -->
+<br>
+<P *ngIf="serverCreated">Server was created, server name is {{serverName}}</P>
+<!-- <ng-template #noServer>
+  <P>no server was created</P>
+</ng-template> -->
+<!-- <app-server></app-server> -->
+<!-- <app-server></app-server> -->
