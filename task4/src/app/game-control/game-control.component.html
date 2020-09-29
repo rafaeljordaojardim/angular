@@ -1,0 +1,8 @@
+<div>
+  <button (click)="onStart()">Start</button>
+  <button (click)="onStop()">Stop</button>
+  <div *ngFor="let num of numbers">
+    <app-even *ngIf="num % 2 === 0" [num]="num"></app-even>
+    <app-odd *ngIf="num % 2 !== 0" [num]="num"></app-odd>
+  </div>
+</div>
