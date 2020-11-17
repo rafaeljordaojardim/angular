@@ -9,13 +9,20 @@ import { DefaultCompComponent } from './recipes/recipe-list/default-comp/default
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
-
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
+import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RecipeEffects } from './recipes/store/recipe.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DefaultCompComponent,
+    DefaultCompComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +32,10 @@ import { CoreModule } from './core.module';
     AppRoutingModule,
     SharedModule,
     CoreModule,
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([AuthEffects, RecipeEffects]),
+    StoreDevtoolsModule.instrument({ logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot()
   ],
   // providers: [
   //   ShoppingListService,
